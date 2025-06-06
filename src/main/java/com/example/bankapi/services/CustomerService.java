@@ -34,6 +34,11 @@ public class CustomerService {
 
         if (!email.matches("^([a-z]){1,}([a-z0-9._-]){1,}([@]){1}([a-z]){2,}([.]){1}([a-z]){2,}([.]?){1}([a-z]?){2,}$"))
             throw new IllegalArgumentException("Email inválido");
+
+        CustomerEntity customerEntity = new CustomerEntity(cpf.trim(), email.trim(), name.trim(),
+                phoneNumber.trim(), password.trim());
+
+        repository.save(customerEntity);
     }
 
     public void deleteCustomer(String cpf){
