@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 import java.util.Optional;
 
 import static java.util.Objects.isNull;
@@ -17,8 +18,8 @@ public class CardService {
     @Autowired
     private CardRepository repository;
 
-    public void getAllCards(String cpf){
-        repository.findAll();
+    public List<CardEntity> getAllCards(String cpf){
+        return repository.findAll();
     }
 
     public void deleteAllCards(){
